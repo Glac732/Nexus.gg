@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Bot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #000, #222);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      to { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+    .button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      text-decoration: none;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      background: #0ff;
+      color: #000;
+    }
+    section {
+      max-width: 800px;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nexus Bot</h1>
+    <div class="buttons">
+      <a href="#features" class="button">Features</a>
+      <a href="https://discord.com/oauth2/authorize?client_id=1257658298774196234&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.gg%2Fz9MDgmtuyT&integration_type=0&scope=bot" class="button">Invite Me</a>
+      <a href="#about" class="button">About Me</a>
+      <a href="#policies" class="button">Policies</a>
+      <a href="#partners" class="button">Partner Servers</a>
+    </div>
+  </header>
+
+  <section id="features">
+    <h2>✨ Features</h2>
+    <p>Nexus Bot provides moderation, automations, ticketing, giveaways, logs, and advanced utility commands—all free and easy to use.</p>
+  </section>
+
+  <section id="about">
+    <h2>🤖 About Me</h2>
+    <p>Nexus is a multi-purpose Discord bot made for managing your server efficiently, while looking sleek and responsive. Built with performance and user experience in mind.</p>
+  </section>
+
+  <section id="policies">
+    <h2>📜 Policies</h2>
+    <p>We respect your privacy. Nexus does not store unnecessary data and follows Discord’s bot guidelines strictly.</p>
+  </section>
+
+  <section id="partners">
+    <h2>🤝 Partner Servers</h2>
+    <p>Join our community and check out partnered servers like <a href="https://discord.com/invite/mylove" style="color:#0ff;">MyLove</a> and more coming soon.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Nexus Bot. Built for Discord users.
+  </footer>
+</body>
+</html>
