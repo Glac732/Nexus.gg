@@ -1,330 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Bot - Ultimate Discord Bot!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #ffffff;
-            --secondary: #0a0a0a;
-            --accent: #00f7ff;
-            --gradient: linear-gradient(45deg, #00ffff, #ffffff);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexus Bot - Ultimate Discord Bot!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <style>
+    :root {
+      --primary: #ffffff;
+      --secondary: #0a0a0a;
+      --accent: #00f7ff;
+      --gradient: linear-gradient(45deg, #00ffff, #ffffff);
+    }
 
-        body {
-            background: var(--secondary);
-            color: var(--primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    body {
+      background: var(--secondary);
+      color: var(--primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .nav-button {
-            padding: 1rem 2rem;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.05);
-        }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
 
-        .nav-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
-        }
+    .nav-button {
+      padding: 1rem 2rem;
+      color: var(--primary);
+      text-decoration: none;
+      position: relative;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-        .home {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(0,247,255,0.1) 0%, transparent 70%);
-        }
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
+    }
 
-        .home-content {
-            z-index: 2;
-        }
+    .home {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(0,247,255,0.1) 0%, transparent 70%);
+    }
 
-        .home h1 {
-            font-size: 5rem;
-            margin-bottom: 2rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: float 3s ease-in-out infinite;
-        }
+    .home-content h1 {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 3s ease-in-out infinite;
+    }
 
-        .invite-btn {
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            background: var(--gradient);
-            color: var(--secondary);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 600;
-            margin-top: 2rem;
-        }
+    .invite-btn {
+      padding: 1.2rem 3rem;
+      font-size: 1.2rem;
+      background: var(--gradient);
+      color: var(--secondary);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+    }
 
-        .invite-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
-        }
+    .invite-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
+    }
 
-        .features, .about, .premium-section, .team {
-            padding: 100px 2rem;
-        }
+    .features, .about, .team, .premium-section {
+      padding: 100px 2rem;
+      background: var(--secondary);
+    }
 
-        .features-grid, .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        .feature-card, .team-member, .about-content, .pricing-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
 
-        .feature-card:hover, .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
-        }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+    }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
 
-        .team-title {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .member-role {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            font-weight: 600;
-        }
+    .team-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        .member-id {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            display: inline-block;
-        }
+    .team-title {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .animated-text {
-            animation: colorCycle 8s infinite;
-        }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
 
-        @keyframes colorCycle {
-            0% { color: #00f7ff; }
-            25% { color: #ff00ff; }
-            50% { color: #00ff00; }
-            75% { color: #ffff00; }
-            100% { color: #00f7ff; }
-        }
+    .team-member {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2);
+    }
 
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+    .member-role {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      font-weight: 600;
+    }
 
-        .pricing-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
+    .member-id {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: inline-block;
+    }
 
-        .pricing-card .price, .pricing-card .prices {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-        }
+    .animated-text {
+      animation: colorCycle 8s infinite;
+    }
 
-        .features-list li {
-            list-style: none;
-            margin: 0.5rem 0;
-        }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
 
-        .subscribe-btn {
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            background: var(--gradient);
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    @keyframes colorCycle {
+      0% { color: #00f7ff; }
+      25% { color: #ff00ff; }
+      50% { color: #00ff00; }
+      75% { color: #ffff00; }
+      100% { color: #00f7ff; }
+    }
 
-        @media (max-width: 768px) {
-            .home h1 {
-                font-size: 3rem;
-            }
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    .pricing-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .pricing-card h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-card .prices {
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      color: #ddd;
+      margin-bottom: 2rem;
+    }
+
+    .features-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .subscribe-btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      background: var(--gradient);
+      color: var(--secondary);
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .home-content h1 {
+        font-size: 3rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-links">
-            <a href="#home" class="nav-button">Home</a>
-            <a href="#features" class="nav-button">Features</a>
-            <a href="#team" class="nav-button">Team</a>
-            <a href="#about" class="nav-button">About</a>
-            <a href="#premium" class="nav-button">Premium</a>
-        </div>
-    </nav>
 
-    <section id="home" class="home">
-        <div class="home-content">
-            <h1>Nexus Bot</h1>
-            <p>The Ultimate Discord Experience</p>
-            <a href="https://dsc.gg/nexuus" class="invite-btn">Add to Discord</a>
-        </div>
-    </section>
+  <nav class="nav">
+    <div class="nav-links">
+      <a href="#home" class="nav-button">Home</a>
+      <a href="#features" class="nav-button">Features</a>
+      <a href="#team" class="nav-button">Team</a>
+      <a href="#about" class="nav-button">About</a>
+      <a href="#premium" class="nav-button">Premium</a>
+    </div>
+  </nav>
 
-    <section id="features" class="features">
-        <div class="features-grid">
-            <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>General</h3><p>Essential commands for server management and utility functions.</p></div>
-            <div class="feature-card"><i class="fas fa-gavel feature-icon"></i><h3>Moderation</h3><p>Advanced moderation tools to keep your server safe and organized.</p></div>
-            <div class="feature-card"><i class="fas fa-robot feature-icon"></i><h3>Automod</h3><p>Automated moderation features to prevent spam and unwanted content.</p></div>
-            <div class="feature-card"><i class="fas fa-lock feature-icon"></i><h3>Security</h3><p>Premium security features including anti-nuke protection.</p></div>
-            <div class="feature-card"><i class="fas fa-ticket-alt feature-icon"></i><h3>Ticket System</h3><p>Advanced ticket management for user support.</p></div>
-            <div class="feature-card"><i class="fas fa-users feature-icon"></i><h3>Reaction Roles</h3><p>Automated role assignment through reactions.</p></div>
-        </div>
-    </section>
+  <section id="home" class="home">
+    <div class="home-content">
+      <h1>Nexus Bot</h1>
+      <p>The Ultimate Discord Experience</p>
+      <a href="https://dsc.gg/nexuus" class="invite-btn">Add to Discord</a>
+    </div>
+  </section>
 
-    <section id="team" class="team">
-        <div class="team-content">
-            <h2 class="team-title animated-text">Meet Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member"><h3 class="member-role animated-text">Owner</h3><div class="member-id">@itz_jigarrr.01</div></div>
-                <div class="team-member"><h3 class="member-role animated-text">Developer</h3><div class="member-id">@xoxo.lyy</div></div>
-                <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@Ron</div></div>
-                <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@just_in1.1</div></div>
-            </div>
-        </div>
-    </section>
+  <section id="features" class="features">
+    <div class="features-grid">
+      <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>General</h3><p>Essential commands for server management and utility functions.</p></div>
+      <div class="feature-card"><i class="fas fa-gavel feature-icon"></i><h3>Moderation</h3><p>Advanced moderation tools to keep your server safe and organized.</p></div>
+      <div class="feature-card"><i class="fas fa-robot feature-icon"></i><h3>Automod</h3><p>Automated moderation features to prevent spam and unwanted content.</p></div>
+      <div class="feature-card"><i class="fas fa-lock feature-icon"></i><h3>Security</h3><p>Premium security features including anti-nuke protection.</p></div>
+      <div class="feature-card"><i class="fas fa-ticket-alt feature-icon"></i><h3>Ticket System</h3><p>Advanced ticket management for user support.</p></div>
+      <div class="feature-card"><i class="fas fa-users feature-icon"></i><h3>Reaction Roles</h3><p>Automated role assignment through reactions.</p></div>
+    </div>
+  </section>
 
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2>About Nexus Bot</h2>
-            <p>Nexus Bot is the ultimate Discord management solution, providing premium features and unparalleled server control.</p>
-            <p>Join our partner server for exclusive updates and support!</p>
-            <a href="https://discord.com/invite/mylove" class="invite-btn" style="margin-top: 2rem;">Join Partner Server</a>
-        </div>
-    </section>
+  <section id="team" class="team">
+    <div class="team-content">
+      <h2 class="team-title animated-text">Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member"><h3 class="member-role animated-text">Owner</h3><div class="member-id">@itz_jigarrr.01</div></div>
+        <div class="team-member"><h3 class="member-role animated-text">Developer</h3><div class="member-id">@xoxo.lyy</div></div>
+        <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@Ron</div></div>
+        <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@just_in1.1</div></div>
+      </div>
+    </div>
+  </section>
 
-    <section id="premium" class="premium-section">
-        <div class="pricing-container">
-            <div class="pricing-card">
-                <h2>Basic Plan</h2>
-                <div class="price">$9.99/month</div>
-                <ul class="features-list">
-                    <li>Feature 1</li>
-                    <li>Feature 2</li>
-                    <li>Feature 3</li>
-                </ul>
-                <button class="subscribe-btn">Subscribe Now</button>
-            </div>
-            <div class="pricing-card featured">
-               
-                </ul>
-                <button class="subscribe-btn">Subscribe Now</button>
-            </div>
-            <div class="pricing-card">
-                <h2>Enterprise Plan</h2>
-                <div class="prices">1 month 50Rs<br>3 month 125Rs<br>1 year 400Rs</div>
-                <ul class="features-list">
-                    <li>No prefix</li>
-                    <li>Fast response</li>
-                    <li>Commands like: Panicmode, Mainrole</li>
-                    <li>Enterprise Feature 3</li>
-                </ul>
-                <button class="subscribe-btn">Subscribe Now</button>
-            </div>
-        </div>
-    </section>
+  <section id="about" class="about">
+    <div class="about-content">
+      <h2>About Nexus Bot</h2>
+      <p>Nexus Bot is the ultimate Discord management solution, providing premium features and unparalleled server control.</p>
+      <p>Join our partner server for exclusive updates and support!</p>
+      <a href="https://discord.com/invite/mylove" class="invite-btn">Join Partner Server</a>
+    </div>
+  </section>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
+  <section id="premium" class="premium-section">
+    <div class="pricing-container">
+      <div class="pricing-card">
+        <h2>Enterprise Plan</h2>
+        <div class="prices">
+          <strong>1 month:</strong> ₹50<br>
+          <strong>3 months:</strong> ₹125<br>
+          <strong>1 year:</strong> ₹400
+        </div>
+        <ul class="features-list">
+          <li>No prefix</li>
+          <li>Fast response</li>
+          <li>Commands like: Panicmode, Mainrole</li>
+          <li>Enterprise Feature 3</li>
+        </ul>
+        <a href="https://discord.gg/wbkeeND7TZ" class="subscribe-btn">Support Server</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
+      });
+    });
 
-        const observerOptions = { threshold: 0.5 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.style.opacity = '0';
-            member.style.transform = 'translateY(50px)';
-            observer.observe(member);
-        });
-    </script>
+    window.addEventListener('scroll', () => {
+      const features = document.querySelectorAll('.feature-card');
+      features.forEach(feature => {
+        const featureTop = feature.getBoundingClientRect().top;
+        if (featureTop < window.innerHeight - 100) {
+          feature.style.opacity = '1';
+          feature.style.transform = 'translateY(0)';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
