@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Enhanced Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -51,8 +50,6 @@
             padding: 1rem 2rem;
             color: var(--primary);
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
             border-radius: 8px;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.05);
@@ -64,19 +61,16 @@
             box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
         }
 
-        /* Enhanced Home Section */
         .home {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
             background: radial-gradient(circle at center, rgba(0,247,255,0.1) 0%, transparent 70%);
         }
 
         .home-content {
-            position: relative;
             z-index: 2;
         }
 
@@ -109,13 +103,11 @@
             box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
         }
 
-        /* Enhanced Features Section */
-        .features {
+        .features, .about, .premium-section, .team {
             padding: 100px 2rem;
-            background: var(--secondary);
         }
 
-        .features-grid {
+        .features-grid, .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
@@ -123,33 +115,15 @@
             margin: 0 auto;
         }
 
-        .feature-card {
+        .feature-card, .team-member, .about-content, .pricing-card {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
             border-radius: 20px;
-            transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: translateX(-100%);
-            transition: 0.5s;
-        }
-
-        .feature-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .feature-card:hover {
+        .feature-card:hover, .team-member:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
         }
@@ -160,195 +134,90 @@
             color: var(--accent);
         }
 
-        /* Enhanced About Section */
-        .about {
-            padding: 100px 2rem;
-            background: var(--secondary);
+        .team-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .member-role {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .member-id {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .animated-text {
+            animation: colorCycle 8s infinite;
+        }
+
+        @keyframes colorCycle {
+            0% { color: #00f7ff; }
+            25% { color: #ff00ff; }
+            50% { color: #00ff00; }
+            75% { color: #ffff00; }
+            100% { color: #00f7ff; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
-        .about-content:hover {
-            animation: tilt 5s infinite alternate;
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .pricing-card .price, .pricing-card .prices {
+            font-size: 1.5rem;
+            margin: 1rem 0;
         }
 
-        @keyframes tilt {
-            0% { transform: rotateX(0deg) rotateY(0deg); }
-            100% { transform: rotateX(5deg) rotateY(5deg); }
+        .features-list li {
+            list-style: none;
+            margin: 0.5rem 0;
         }
 
-        /* Responsive Design */
+        .subscribe-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--gradient);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             .home h1 {
                 font-size: 3rem;
             }
-            
             .nav-links {
                 flex-direction: column;
                 align-items: center;
             }
         }
-        <!-- Add this in the style section -->
-<style>
-    <!-- Add this in the style section -->
-<style>
-/* ... (previous styles remain the same) ... */
-
-/* Team Section Styles */
-.team {
-padding: 100px 2rem;
-background: var(--secondary);
-}
-
-.team-content {
-max-width: 1200px;
-margin: 0 auto;
-text-align: center;
-}
-
-.team-title {
-font-size: 3rem;
-margin-bottom: 3rem;
-background: var(--gradient);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.team-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 2rem;
-margin-top: 3rem;
-}
-
-.team-member {
-background: rgba(255, 255, 255, 0.05);
-padding: 2rem;
-border-radius: 20px;
-border: 1px solid rgba(255, 255, 255, 0.1);
-transition: all 0.3s ease;
-}
-
-.team-member:hover {
-transform: translateY(-10px);
-box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2);
-}
-
-.member-role {
-color: var(--accent);
-font-size: 1.2rem;
-margin: 1rem 0;
-font-weight: 600;
-}
-
-.member-id {
-font-size: 1.1rem;
-opacity: 0.8;
-background: rgba(255, 255, 255, 0.05);
-padding: 0.5rem 1rem;
-border-radius: 50px;
-display: inline-block;
-}
-
-.animated-text {
-animation: colorCycle 8s infinite;
-}
-
-@keyframes colorCycle {
-0% { color: #00f7ff; }
-25% { color: #ff00ff; }
-50% { color: #00ff00; }
-75% { color: #ffff00; }
-100% { color: #00f7ff; }
-}
-</style>
-
-<!-- Add this in the nav section -->
-<nav class="nav">
-<div class="nav-links">
-<a href="#home" class="nav-button">Home</a>
-<a href="#features" class="nav-button">Features</a>
-<a href="#team" class="nav-button">Team</a>
-<a href="#about" class="nav-button">About</a>
-<a href="#premium" class="nav-button">Premium</a>
-</div>
-</nav>
-
-<!-- Add this new section before the about section -->
-<section id="team" class="team">
-<div class="team-content">
-<h2 class="team-title animated-text">Meet Our Team</h2>
-<div class="team-grid">
-<div class="team-member">
-<h3 class="member-role animated-text">Owner</h3>
-<div class="member-id">@itz_jigarrr.01
-</div>
-</div>
-<div class="team-member">
-<h3 class="member-role animated-text">Developer</h3>
-<div class="member-id">@xoxo.lyy</div>
-</div>
-<div class="team-member">
-<h3 class="member-role animated-text">Core Team</h3>
-<div class="member-id">@Ron</div>
-</div>
-<div class="team-member">
-<h3 class="member-role animated-text">Core Team</h3>
-<div class="member-id">@just_in1.1</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Add this to the script section -->
-<script>
-// ... (previous scripts remain the same) ...
-
-// Animation for team members
-const observerOptions = {
-threshold: 0.5
-};
-<!-- Add this to the script section -->
-<script>
-    // ... (previous scripts remain the same) ... 
-
-    // Animation for team members
-    const observerOptions = {
-        threshold: 0.5
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.team-member').forEach(member => {
-        member.style.opacity = '0';
-        member.style.transform = 'translateY(50px)';
-        observer.observe(member);
-    });
-</script>
-
     </style>
 </head>
 <body>
@@ -356,8 +225,11 @@ threshold: 0.5
         <div class="nav-links">
             <a href="#home" class="nav-button">Home</a>
             <a href="#features" class="nav-button">Features</a>
-            <a href="#features" class="nav-button">About</a>
-            <a href="#features" class="nav-button">Premium</a>
+            <a href="#team" class="nav-button">Team</a>
+            <a href="#about" class="nav-button">About</a>
+            <a href="#premium" class="nav-button">Premium</a>
+        </div>
+    </nav>
 
     <section id="home" class="home">
         <div class="home-content">
@@ -369,37 +241,24 @@ threshold: 0.5
 
     <section id="features" class="features">
         <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-shield-alt feature-icon"></i>
-                <h3>General</h3>
-                <p>Essential commands for server management and utility functions.</p>
+            <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>General</h3><p>Essential commands for server management and utility functions.</p></div>
+            <div class="feature-card"><i class="fas fa-gavel feature-icon"></i><h3>Moderation</h3><p>Advanced moderation tools to keep your server safe and organized.</p></div>
+            <div class="feature-card"><i class="fas fa-robot feature-icon"></i><h3>Automod</h3><p>Automated moderation features to prevent spam and unwanted content.</p></div>
+            <div class="feature-card"><i class="fas fa-lock feature-icon"></i><h3>Security</h3><p>Premium security features including anti-nuke protection.</p></div>
+            <div class="feature-card"><i class="fas fa-ticket-alt feature-icon"></i><h3>Ticket System</h3><p>Advanced ticket management for user support.</p></div>
+            <div class="feature-card"><i class="fas fa-users feature-icon"></i><h3>Reaction Roles</h3><p>Automated role assignment through reactions.</p></div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="team-content">
+            <h2 class="team-title animated-text">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member"><h3 class="member-role animated-text">Owner</h3><div class="member-id">@itz_jigarrr.01</div></div>
+                <div class="team-member"><h3 class="member-role animated-text">Developer</h3><div class="member-id">@xoxo.lyy</div></div>
+                <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@Ron</div></div>
+                <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@just_in1.1</div></div>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-gavel feature-icon"></i>
-                <h3>Moderation</h3>
-                <p>Advanced moderation tools to keep your server safe and organized.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-robot feature-icon"></i>
-                <h3>Automod</h3>
-                <p>Automated moderation features to prevent spam and unwanted content.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-lock feature-icon"></i>
-                <h3>Security</h3>
-                <p>Premium security features including anti-nuke protection.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-ticket-alt feature-icon"></i>
-                <h3>Ticket System</h3>
-                <p>Advanced ticket management for user support.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-users feature-icon"></i>
-                <h3>Reaction Roles</h3>
-                <p>Automated role assignment through reactions.</p>
-            </div>
-            <!-- Add more feature cards for each feature you listed -->
         </div>
     </section>
 
@@ -411,69 +270,66 @@ threshold: 0.5
             <a href="https://discord.com/invite/mylove" class="invite-btn" style="margin-top: 2rem;">Join Partner Server</a>
         </div>
     </section>
-<!-- Add this section for Premium Plans -->
-<section id="premium" class="premium-section">
-    <div class="pricing-container">
-        <div class="pricing-card">
-            <h2>Basic Plan</h2>
-            <div class="price">$9.99/month</div>
-            <ul class="features-list">
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
-            </ul>
-            <button class="subscribe-btn">Subscribe Now</button>
-        </div>
 
-        <div class="pricing-card featured">
-            <h2>Pro Plan</h2>
-            <div class="price">$19.99/month</div>
-            <ul class="features-list">
-                <li>All Basic Features</li>
-                <li>Pro Feature 1</li>
-                <li>Pro Feature 2</li>
-                <li>Pro Feature 3</li>
-            </ul>
-            <button class="subscribe-btn">Subscribe Now</button>
+    <section id="premium" class="premium-section">
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <h2>Basic Plan</h2>
+                <div class="price">$9.99/month</div>
+                <ul class="features-list">
+                    <li>Feature 1</li>
+                    <li>Feature 2</li>
+                    <li>Feature 3</li>
+                </ul>
+                <button class="subscribe-btn">Subscribe Now</button>
+            </div>
+            <div class="pricing-card featured">
+                <h2>Pro Plan</h2>
+                <div class="price">$19.99/month</div>
+                <ul class="features-list">
+                    <li>All Basic Features</li>
+                    <li>Pro Feature 1</li>
+                    <li>Pro Feature 2</li>
+                    <li>Pro Feature 3</li>
+                </ul>
+                <button class="subscribe-btn">Subscribe Now</button>
+            </div>
+            <div class="pricing-card">
+                <h2>Enterprise Plan</h2>
+                <div class="prices">1 month 50Rs<br>3 month 125Rs<br>1 year 400Rs</div>
+                <ul class="features-list">
+                    <li>No prefix</li>
+                    <li>Fast response</li>
+                    <li>Commands like: Panicmode, Mainrole</li>
+                    <li>Enterprise Feature 3</li>
+                </ul>
+                <button class="subscribe-btn">Subscribe Now</button>
+            </div>
         </div>
+    </section>
 
-        <div class="pricing-card">
-            <h2>Enterprise Plan</h2>
-            <div class="prices">1 month 50Rs
-                3 month 125Rs
-                1 year 400Rs</div>
-            <ul class="features-list">
-                <li>No prefix</li>
-                <li>Fast response 1</li>
-                <li>Commands like: Panicmode
-    :emoji_21: Mainrole 2</li>
-                <li>Enterprise Feature 3</li>
-            </ul>
-            <button class="subscribe-btn"></button>
-        </div>
-    </div>
-</section>
     <script>
-        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Animation on scroll
-        window.addEventListener('scroll', () => {
-            const features = document.querySelectorAll('.feature-card');
-            features.forEach(feature => {
-                const featureTop = feature.getBoundingClientRect().top;
-                if (featureTop < window.innerHeight - 100) {
-                    feature.style.opacity = '1';
-                    feature.style.transform = 'translateY(0)';
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.style.opacity = '0';
+            member.style.transform = 'translateY(50px)';
+            observer.observe(member);
         });
     </script>
 </body>
