@@ -120,13 +120,14 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.4s ease;
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 0;
+      transform: translateY(30px);
     }
 
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+    .feature-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
     }
 
     .feature-icon {
@@ -305,8 +306,9 @@
       <div class="feature-card"><i class="fas fa-lock feature-icon"></i><h3>Security</h3><p>Premium security features including anti-nuke protection.</p></div>
       <div class="feature-card"><i class="fas fa-ticket-alt feature-icon"></i><h3>Ticket System</h3><p>Advanced ticket management for user support.</p></div>
       <div class="feature-card"><i class="fas fa-users feature-icon"></i><h3>Reaction Roles</h3><p>Automated role assignment through reactions.</p></div>
-      <div class="feature-card"><i class="fas fa-music feature-icon"></i><h3>Music</h3><p>Play high-quality music with advanced queue and playlist controls.</p></div>
-      <div class="feature-card"><i class="fas fa-gift feature-icon"></i><h3>Giveaways</h3><p>Easy-to-run giveaways with timer, entries, and auto-winners.</p></div>
+      <div class="feature-card"><i class="fas fa-handshake feature-icon"></i><h3>Welcome</h3><p>Custom welcome messages and auto role assignment for new users.</p></div>
+      <div class="feature-card"><i class="fas fa-cogs feature-icon"></i><h3>Utility</h3><p>Helpful commands like polls, reminders, and server info.</p></div>
+      <div class="feature-card"><i class="fas fa-laugh feature-icon"></i><h3>Fun</h3><p>Interactive and entertaining commands for user engagement.</p></div>
     </div>
   </section>
 
@@ -350,6 +352,21 @@
       </div>
     </div>
   </section>
+
+  <script>
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.feature-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 
   <script src="//code.tidio.co/0palmwvgehxscbgijvlsrpxntovje7aw.js" async></script>
 </body>
