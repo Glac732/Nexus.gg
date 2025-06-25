@@ -77,13 +77,38 @@
       background: radial-gradient(circle at center, rgba(0,247,255,0.1) 0%, transparent 70%);
     }
 
+    .glow-text {
+      background: linear-gradient(90deg, #00f7ff, #ff00ff, #00ff00, #ffff00, #00f7ff);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 8s linear infinite;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    @keyframes glow {
+      0% { background-position: 0% }
+      100% { background-position: 400% }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeInUp 1.5s ease-out both;
+    }
+
     .home-content h1 {
       font-size: 5rem;
       margin-bottom: 1rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: float 3s ease-in-out infinite;
     }
 
     .invite-btn {
@@ -155,9 +180,6 @@
     .team-title {
       font-size: 3rem;
       margin-bottom: 3rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     .team-grid {
@@ -193,10 +215,6 @@
       padding: 0.5rem 1rem;
       border-radius: 50px;
       display: inline-block;
-    }
-
-    .animated-text {
-      animation: colorCycle 8s infinite;
     }
 
     .pricing-container {
@@ -248,19 +266,6 @@
       display: inline-block;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @keyframes colorCycle {
-      0% { color: #00f7ff; }
-      25% { color: #ff00ff; }
-      50% { color: #00ff00; }
-      75% { color: #ffff00; }
-      100% { color: #00f7ff; }
-    }
-
     @media (max-width: 768px) {
       .home-content h1 {
         font-size: 3rem;
@@ -292,8 +297,8 @@
 
   <section id="home" class="home">
     <div class="home-content">
-      <h1>Nexus Bot</h1>
-      <p>The Ultimate Discord Experience</p>
+      <h1 class="glow-text">Nexus Bot</h1>
+      <p class="fade-in">⚡ The Best Discord Bot Mankind Has Ever Seen</p>
       <a href="https://dsc.gg/nexuus" class="invite-btn">Add to Discord</a>
     </div>
   </section>
@@ -314,19 +319,19 @@
 
   <section id="team">
     <div class="team-content">
-      <h2 class="team-title animated-text">Meet Our Team</h2>
+      <h2 class="team-title glow-text">Meet Our Team</h2>
       <div class="team-grid">
-        <div class="team-member"><h3 class="member-role animated-text">Owner</h3><div class="member-id">@itz_jigarrr.01</div></div>
-        <div class="team-member"><h3 class="member-role animated-text">Developer</h3><div class="member-id">@xoxo.lyy</div></div>
-        <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@Ron</div></div>
-        <div class="team-member"><h3 class="member-role animated-text">Core Team</h3><div class="member-id">@just_in1.1</div></div>
+        <div class="team-member"><h3 class="member-role glow-text">Owner</h3><div class="member-id">@itz_jigarrr.01</div></div>
+        <div class="team-member"><h3 class="member-role glow-text">Developer</h3><div class="member-id">@xoxo.lyy</div></div>
+        <div class="team-member"><h3 class="member-role glow-text">Core Team</h3><div class="member-id">@Ron</div></div>
+        <div class="team-member"><h3 class="member-role glow-text">Core Team</h3><div class="member-id">@just_in1.1</div></div>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <div class="about-content">
-      <h2>About Nexus Bot</h2>
+    <div class="about-content fade-in">
+      <h2 class="glow-text">About Nexus Bot</h2>
       <p>Nexus Bot is the ultimate Discord management solution, providing premium features and unparalleled server control.</p>
       <p>Join our support server for exclusive updates and support!</p>
       <a href="https://discord.com/invite/z9MDgmtuyT" class="invite-btn">Join Support Server!</a>
@@ -335,7 +340,7 @@
 
   <section id="premium">
     <div class="pricing-container">
-      <div class="pricing-card">
+      <div class="pricing-card fade-in">
         <h2>Enterprise Plan</h2>
         <div class="prices">
           <strong>1 month:</strong> ₹50<br>
@@ -345,8 +350,6 @@
         <ul class="features-list">
           <li>No prefix</li>
           <li>Fast response</li>
-          
-          
         </ul>
         <a href="https://discord.gg/wbkeeND7TZ" class="subscribe-btn">Support Server</a>
       </div>
@@ -354,7 +357,7 @@
   </section>
 
   <script>
-    // Scroll animation
+    // Reveal feature cards on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
