@@ -26,12 +26,10 @@
     body {
       background: var(--secondary);
       color: var(--primary);
-      min-height: 100vh;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    /* Celebration Confetti Animation */
     .confetti {
       position: fixed;
       top: 0;
@@ -47,7 +45,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 1.5rem;
+      padding: 1rem;
       background: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
@@ -62,7 +60,7 @@
     }
 
     .nav-button {
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.5rem;
       color: var(--primary);
       text-decoration: none;
       border-radius: 8px;
@@ -78,14 +76,14 @@
 
     section {
       padding: 100px 2rem;
+      min-height: 100vh;
     }
 
     .home {
-      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       text-align: center;
       background: radial-gradient(circle at center, rgba(255,187,0,0.1) 0%, transparent 70%);
     }
@@ -114,6 +112,11 @@
       animation: fadeInUp 1.5s ease-out both;
     }
 
+    .home-content h1 {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+
     .celebration-badge {
       background: var(--celebration);
       color: var(--secondary);
@@ -130,7 +133,7 @@
     }
 
     .invite-btn {
-      padding: 1.2rem 3rem;
+      padding: 1rem 2.5rem;
       font-size: 1.2rem;
       background: var(--gradient);
       color: var(--secondary);
@@ -149,87 +152,50 @@
       box-shadow: 0 10px 20px rgba(255, 187, 0, 0.3);
     }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.4s ease;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .feature-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .count-up {
+      font-size: 4rem;
+      font-weight: bold;
       color: var(--celebration);
+      margin-top: 1rem;
     }
 
-    .about-content, .team-member, .pricing-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .team-title {
+    /* Section styling */
+    .section-title {
       font-size: 3rem;
-      margin-bottom: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+    .section-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.6;
     }
 
-    .member-role {
-      color: var(--celebration);
-      font-size: 1.2rem;
-      margin: 1rem 0;
-      font-weight: 600;
-    }
+    @media (max-width: 768px) {
+      .home-content h1 {
+        font-size: 3rem;
+      }
 
-    .member-id {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      display: inline-block;
-    }
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .pricing-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .features-list {
-      list-style: none;
-      padding: 0;
-      color: #ddd;
+      .nav-button {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Confetti Canvas -->
   <canvas class="confetti" id="confetti"></canvas>
 
+  <!-- Navbar -->
   <nav class="nav">
     <div class="nav-links">
       <a href="#home" class="nav-button">Home</a>
@@ -240,64 +206,50 @@
     </div>
   </nav>
 
+  <!-- Home -->
   <section id="home" class="home">
     <div class="home-content">
       <h1 class="glow-text">🎉 Nexus Bot</h1>
-      <div class="celebration-badge">Celebrating 1,000 Servers!</div>
+      <div class="celebration-badge">Celebrating <span id="count" class="count-up">0</span> Servers!</div>
       <p class="fade-in">⚡ Thank you to our amazing community for helping us reach this milestone!</p>
       <a href="https://dsc.gg/nexuus" class="invite-btn">Add to Discord</a>
     </div>
   </section>
 
+  <!-- Features -->
   <section id="features">
-    <div class="features-grid">
-      <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>General</h3><p>Essential commands for server management.</p></div>
-      <div class="feature-card"><i class="fas fa-gavel feature-icon"></i><h3>Moderation</h3><p>Advanced tools to keep your server safe.</p></div>
-      <div class="feature-card"><i class="fas fa-robot feature-icon"></i><h3>Automod</h3><p>Automated moderation for spam prevention.</p></div>
-      <div class="feature-card"><i class="fas fa-lock feature-icon"></i><h3>Security</h3><p>Anti-nuke and premium security features.</p></div>
-      <div class="feature-card"><i class="fas fa-ticket-alt feature-icon"></i><h3>Tickets</h3><p>Advanced ticket management system.</p></div>
-      <div class="feature-card"><i class="fas fa-users feature-icon"></i><h3>Reaction Roles</h3><p>Assign roles with reactions.</p></div>
-    </div>
+    <h2 class="section-title">Features</h2>
+    <p class="section-content">
+      Powerful moderation tools, fun games, music streaming, and more — all in one bot.
+    </p>
   </section>
 
+  <!-- Team -->
   <section id="team">
-    <h2 class="team-title glow-text">Meet Our Team</h2>
-    <div class="team-grid">
-      <div class="team-member"><h3 class="member-role">Owner</h3><div class="member-id">@itz_jigarrr.01</div></div>
-      <div class="team-member"><h3 class="member-role">Developer</h3><div class="member-id">@xoxo.lyy</div></div>
-      <div class="team-member"><h3 class="member-role">Core Team</h3><div class="member-id">@Ron</div></div>
-      <div class="team-member"><h3 class="member-role">Core Team</h3><div class="member-id">@just_in1.1</div></div>
-    </div>
+    <h2 class="section-title">Meet the Team</h2>
+    <p class="section-content">
+      Our dedicated developers and moderators keep Nexus Bot running smoothly for all our communities.
+    </p>
   </section>
 
+  <!-- About -->
   <section id="about">
-    <div class="about-content fade-in">
-      <h2 class="glow-text">About Nexus Bot</h2>
-      <p>Nexus Bot is the ultimate Discord management solution, now powering over <strong>1,000 servers</strong> worldwide!</p>
-      <a href="https://discord.com/invite/z9MDgmtuyT" class="invite-btn">Join Support Server!</a>
-    </div>
+    <h2 class="section-title">About Nexus Bot</h2>
+    <p class="section-content">
+      Nexus Bot is designed to be your all-in-one solution for Discord server management and entertainment.
+    </p>
   </section>
 
+  <!-- Premium -->
   <section id="premium">
-    <div class="pricing-container">
-      <div class="pricing-card fade-in">
-        <h2>Enterprise Plan</h2>
-        <div class="prices">
-          <strong>1 month:</strong> ₹50<br>
-          <strong>3 months:</strong> ₹125<br>
-          <strong>1 year:</strong> ₹400
-        </div>
-        <ul class="features-list">
-          <li>No prefix</li>
-          <li>Fast response</li>
-        </ul>
-        <a href="https://discord.gg/wbkeeND7TZ" class="invite-btn">Support Server</a>
-      </div>
-    </div>
+    <h2 class="section-title">Premium</h2>
+    <p class="section-content">
+      Unlock exclusive features, priority support, and special customization with Nexus Premium.
+    </p>
   </section>
 
   <script>
-    // Confetti animation
+    // Confetti effect
     const confetti = document.getElementById('confetti');
     const ctx = confetti.getContext('2d');
     confetti.width = window.innerWidth;
@@ -306,7 +258,9 @@
     const particles = [];
     const colors = ['#ffbb00', '#ff00ff', '#00f7ff', '#00ff00'];
 
-    function random(min, max) { return Math.random() * (max - min) + min; }
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
 
     function createParticle() {
       particles.push({
@@ -334,17 +288,31 @@
       requestAnimationFrame(drawParticles);
     }
 
-    for (let i = 0; i < 150; i++) createParticle();
+    for (let i = 0; i < 150; i++) {
+      createParticle();
+    }
     drawParticles();
 
-    // Reveal feature cards
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
+    // Count-up animation
+    function countUp(id, target, duration) {
+      const element = document.getElementById(id);
+      let start = 0;
+      const increment = target / (duration / 16);
+      function update() {
+        start += increment;
+        if (start >= target) {
+          start = target;
+        } else {
+          requestAnimationFrame(update);
+        }
+        element.textContent = Math.floor(start).toLocaleString();
+      }
+      update();
+    }
 
-    document.querySelectorAll('.feature-card').forEach(card => observer.observe(card));
+    window.addEventListener("load", () => {
+      countUp("count", 1000, 2000);
+    });
   </script>
 
 </body>
